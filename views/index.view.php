@@ -1,1 +1,5 @@
-<h2>index.view.php</h2>
+<main>
+    <?php dump($source_file_size) ?>
+    <?php dump($source_files) ?>
+
+</main>
