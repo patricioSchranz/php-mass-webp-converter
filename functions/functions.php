@@ -47,5 +47,9 @@ function convert_files($image_files, $quality,  $source_directory,  $target_dire
         $sliced_image_file = explode('.', $image_file)[0];
 
         shell_exec("cwebp -q {$quality} {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}.webp");
+
+        shell_exec("cwebp -q {$quality} -resize 1500 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-1500.webp");
+
+        shell_exec("cwebp -q 90 -resize 750 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-750.webp");
     }
 }
