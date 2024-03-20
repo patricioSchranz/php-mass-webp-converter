@@ -34,22 +34,31 @@ function get_all_images_filesize($directory, $files){
     $sum = 0;
 
     foreach($files as $file){
-        $sum += filesize($directory . '/' . $file);
+
+        if(!str_contains($file, '1500') && !str_contains($file, '750')){
+            $sum += filesize($directory . '/' . $file);
+        }
+        
     }
    
     return round( ($sum / 1048576) , 2 );
 }
 
 // convert the image files
-function convert_files($image_files, $quality,  $source_directory,  $target_directory){
+function convert_files($image_files, $quality,  $source_directory,  $target_directory, $small_size, $medium_size){
     
     foreach($image_files as $image_file){
         $sliced_image_file = explode('.', $image_file)[0];
 
         shell_exec("cwebp -q {$quality} {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}.webp");
 
-        shell_exec("cwebp -q {$quality} -resize 1500 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-1500.webp");
-
-        shell_exec("cwebp -q 90 -resize 750 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-750.webp");
+        if($small_size){
+            shell_exec("cwebp -q 90 -resize 750 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-750.webp");
+        }
+        
+        if($medium_size){
+            shell_exec("cwebp -q {$quality} -resize 1500 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-1500.webp");
+        }
+    
     }
 }
