@@ -1,0 +1,18 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, #FFF 0%, rgba(169, 11, 244, 0.68) 100%);
+  min-height: 100svh;
+  height: 100svh;
+  padding: 2rem;
+  margin: 0;
+}
+body .page-container {
+  border-radius: 1.25rem;
+  border: 2px dashed rgba(5, 7, 9, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  height: 100%;
+  padding: 2rem;
+}/*# sourceMappingURL=web-mass-converter.css.map */

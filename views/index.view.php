@@ -1,26 +1,46 @@
+<header>
+    <img src="./assets/mass-converter-svg.svg" alt="mass converter logo">
+    <h1>Webp Mass Converter</h1>
+</header>
+
 <main>
+    <?php if( !isset($_GET['convert']) ) : ?>
+        <p class="info">
+            <strong><?= count($source_files) ?> files</strong> were found with a <strong>total data size</strong> of
+            <strong><?= $source_file_size ?>MB</strong>
+        </p>
 
-    <p>Es wurden <?= count($source_files) ?> Bilder, mit einer Gesamtdatengröße von <?= $source_file_size ?>MB, zum Konvertieren gefunden</p>
-    <a href="?convert=true">Convert</a>
+        <form type="get" action="">
 
-    <?php if(isset($saved_storage_space)) :?>
-        <p>With the original size you saved <?= $saved_storage_space ?> MB of storage space</p>
-    <?php endif;?>
+            <fieldset>
+                <legend>Create additional image sizes :</legend>
+                <input type="checkbox" name="small" value="true" id="small">
+                <label for="small">Bild mit einer Breite von 750px erzeugen</label>
 
+                <input type="checkbox" name="medium" value="true" id="medium">
+                <label for="medium">Bild mit einer Breite von 1500px erzeugen</label>
+            </fieldset>
+        
+            <input type="checkbox" value="true" name="convert" checked hidden>
+            <button type="submit" class="mass-converter-btn">Convert</button>
+        </form>
 
-    <form type="get" action="">
+        <?php else: ?>
+            <p class="info">
+                <strong><?= count($source_files) ?> files</strong> were converted 
+                <strong>with 
 
-        <fieldset>
-            <legend>zusätzliche Größen</legend>
-            <input type="checkbox" name="small" value="true" id="small">
-            <label for="small">Bild mit einer Breite von 750px erzeugen</label>
+                    <?php if($additonal_sizes_count === 1) : ?>
+                        <?= $additonal_sizes_count ?> additional size
 
-            <input type="checkbox" name="medium" value="true" id="medium">
-            <label for="medium">Bild mit einer Breite von 1500px erzeugen</label>
-        </fieldset>
-      
-        <input type="checkbox" value="true" name="convert" checked hidden>
-        <button type="submit">Convert</button>
-    </form>
-    
+                        <?php else :?>
+                            <?= $additonal_sizes_count ?> additonal sizes
+                    <?php endif; ?>
+
+                </strong>
+            </p>
+            <p class="additional-info">With the original size you saved <?= $saved_storage_space ?> MB of storage space</p>
+
+            <a href="./index.php">Reset</a>
+    <?php endif; ?> 
 </main>

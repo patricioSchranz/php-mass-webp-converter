@@ -13,9 +13,17 @@ if( isset($_GET['convert']) && !empty($source_files) ) {
 
     $small_size = false;
     $medium_size = false;
+    $additonal_sizes_count = 0;
 
-    if( isset($_GET['small']) ) { $small_size = $_GET['small']; }
-    if( isset($_GET['medium']) ) { $medium_size = $_GET['medium']; }
+    if( isset($_GET['small']) ) { 
+        $small_size = $_GET['small'];
+        $additonal_sizes_count += 1; 
+    }
+
+    if( isset($_GET['medium']) ) { 
+        $medium_size = $_GET['medium']; 
+        $additonal_sizes_count += 1; 
+    }
 
     convert_files($source_files, 85,  $source_directory,  $converted_directory, $small_size, $medium_size);
 
