@@ -41,6 +41,10 @@
             </p>
             <p class="additional-info">With the original size you saved <?= $saved_storage_space ?> MB of storage space</p>
 
-            <a href="./index.php">Reset</a>
+            <a href="./index.php" class="reset-button">Reset</a>
     <?php endif; ?> 
+
+    <p class="viewport-info">
+        You need a viewport larger than 1120px
+    </p>
 </main>

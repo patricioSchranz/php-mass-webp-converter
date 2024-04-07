@@ -59,6 +59,6 @@ function convert_files($image_files, $quality,  $source_directory,  $target_dire
         if($medium_size){
             shell_exec("cwebp -q {$quality} -resize 1500 0 {$source_directory}/{$image_file} -o {$target_directory}/{$sliced_image_file}-1500.webp");
         }
-    
+
     }
 }
