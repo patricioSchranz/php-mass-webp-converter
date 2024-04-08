@@ -140,11 +140,14 @@ body .page-container main .reset-button {
   z-index: 1;
   transition: all 0.2s;
 }
-body .page-container main button[type=submit]:hover,
-body .page-container main .reset-button:hover {
+body .page-container main button[type=submit]:hover:not([disabled]),
+body .page-container main .reset-button:hover:not([disabled]) {
   color: white;
   background-color: #050709;
   border-radius: 0%;
+}
+body .page-container main button::disabled {
+  opacity: 0.5;
 }
 body .page-container main .reset-button {
   display: flex;

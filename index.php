@@ -7,9 +7,10 @@ $converted_directory = __DIR__ . '/cybertron/converted';
 $source_files = get_source_files($source_directory);
 $source_file_size = get_all_images_filesize($source_directory, $source_files);
 
+$can_be_converted = empty($source_files) ? false : true;
 
 // => start the conversion
-if( isset($_GET['convert']) && !empty($source_files) ) { 
+if( isset($_GET['convert']) && $can_be_converted ) { 
 
     $small_size = false;
     $medium_size = false;

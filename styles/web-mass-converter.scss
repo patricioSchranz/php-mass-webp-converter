@@ -161,12 +161,16 @@ body{
                 z-index: 1;
                 transition: all .2s;
 
-                 &:hover{
+                 &:hover:not([disabled]){
                     color: white;
                     background-color: #050709;
                     border-radius: 0%;
                 }
                 
+            }
+
+            button::disabled{
+                opacity: 0.5;
             }
 
             .reset-button{

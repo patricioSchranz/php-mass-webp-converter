@@ -22,7 +22,14 @@
             </fieldset>
         
             <input type="checkbox" value="true" name="convert" checked hidden>
-            <button type="submit" class="mass-converter-btn">Convert</button>
+
+            <?php if($can_be_converted) : ?>
+                <button type="submit" class="mass-converter-btn">Convert</button>
+
+                <?php else : ?>
+                    <button type="submit" class="mass-converter-btn" disabled>Convert</button>
+            <?php endif; ?>
+            
         </form>
 
         <?php else: ?>
