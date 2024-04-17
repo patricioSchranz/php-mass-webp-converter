@@ -15,5 +15,6 @@ With this small php tool, you can convert several jpg or png images into webp fo
 ## USAGE
 
 1. Copy the files you want to convert to cybertron/source
-2. Open this tool in your browser
-3. Let`s convert your stuff
+2. Start XAMPP
+3. Open this tool in your browser
+4. Let`s convert your stuff
