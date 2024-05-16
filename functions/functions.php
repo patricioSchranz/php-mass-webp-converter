@@ -37,7 +37,6 @@ function get_all_images_filesize($directory, $files){
 
         if(!str_contains($file, 'wmc-1500') && !str_contains($file, 'wmc-750')){
             $sum += filesize($directory . '/' . $file);
-            $count++;
         }
         
     }
