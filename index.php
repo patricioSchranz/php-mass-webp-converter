@@ -28,7 +28,7 @@ if( isset($_GET['convert']) ) {
             $additonal_sizes_count += 1; 
         }
     
-        convert_files($source_files, 85,  $source_directory,  $converted_directory, $small_size, $medium_size);
+        convert_files($source_files, 95,  $source_directory,  $converted_directory, $small_size, $medium_size);
     
         $converted_files = get_converted_files($converted_directory);
         $converted_file_size = get_all_images_filesize($converted_directory, $converted_files);
